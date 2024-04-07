@@ -39,7 +39,7 @@ export const fileTree: IFile = {
               isFolder: false,
             },
             {
-              name: "dummy.json",
+              name: "index.txt",
               isFolder: false,
             },
           ],
