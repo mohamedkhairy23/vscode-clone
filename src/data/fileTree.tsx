@@ -11,9 +11,39 @@ export const fileTree: IFile = {
         {
           name: ".vite",
           isFolder: true,
-          children: [{ name: "React.js", isFolder: false }],
+          children: [
+            {
+              name: "deps",
+              isFolder: true,
+              children: [
+                {
+                  name: "chunk-4YP5LC2O.js",
+                  isFolder: false,
+                },
+              ],
+            },
+          ],
         },
-        { name: ".js", isFolder: false },
+      ],
+    },
+    {
+      name: "src",
+      isFolder: true,
+      children: [
+        {
+          name: "components",
+          isFolder: true,
+          children: [
+            {
+              name: "Button.tsx",
+              isFolder: false,
+            },
+            {
+              name: "dummy.json",
+              isFolder: false,
+            },
+          ],
+        },
       ],
     },
     {

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IFile } from "../interfaces";
-import FileIcon from "./SVG/FileIcon";
 import RightArrowIcon from "./SVG/Right";
 import BottomArrowIcon from "./SVG/Bottom";
+import RenderFileIcon from "./RenderFileIcon";
 
 interface IProps {
   fileTree: IFile;
@@ -20,13 +20,17 @@ const RecursiveComponent = ({
       <div className="flex items-center mb-1">
         {isFolder ? (
           <div onClick={toggle} className="flex items-center">
-            {isOpen ? <BottomArrowIcon /> : <RightArrowIcon />}
-            <FileIcon />
+            <span>{isOpen ? <BottomArrowIcon /> : <RightArrowIcon />}</span>
+            <RenderFileIcon
+              filename={name}
+              isFolder={isFolder}
+              isOpen={isOpen}
+            />
             <span>{name}</span>
           </div>
         ) : (
           <div className="flex items-center mr-2">
-            <FileIcon />
+            <RenderFileIcon filename={name} />
             <span className="ml-2">{name}</span>
           </div>
         )}
