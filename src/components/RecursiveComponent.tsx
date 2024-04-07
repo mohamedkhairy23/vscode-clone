@@ -3,17 +3,29 @@ import { IFile } from "../interfaces";
 import RightArrowIcon from "./SVG/Right";
 import BottomArrowIcon from "./SVG/Bottom";
 import RenderFileIcon from "./RenderFileIcon";
+import { useDispatch, useSelector } from "react-redux";
+import { setOpenedFiles } from "../app/features/fileTreeSlice";
+import { RootState } from "../app/store";
+import { doesFileObjectExist } from "../utils/functions";
 
 interface IProps {
   fileTree: IFile;
 }
 
-const RecursiveComponent = ({
-  fileTree: { name, isFolder, children },
-}: IProps) => {
+const RecursiveComponent = ({ fileTree }: IProps) => {
+  const { name, isFolder, children, id } = fileTree;
+  const dispatch = useDispatch();
+  const { openedFiles } = useSelector((state: RootState) => state.tree);
   const [isOpen, setIsOpen] = useState<boolean>(true);
 
   const toggle = () => setIsOpen((prev) => !prev);
+
+  const onFileClicked = () => {
+    const exists = doesFileObjectExist(openedFiles, id);
+    if (exists) return;
+
+    dispatch(setOpenedFiles([...openedFiles, fileTree]));
+  };
 
   return (
     <div className="mb-2 ml-2 cursor-pointer">
@@ -29,7 +41,7 @@ const RecursiveComponent = ({
             <span>{name}</span>
           </div>
         ) : (
-          <div className="flex items-center mr-2">
+          <div className="flex items-center ml-2" onClick={onFileClicked}>
             <RenderFileIcon filename={name} />
             <span className="ml-2">{name}</span>
           </div>
