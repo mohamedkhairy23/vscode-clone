@@ -5,7 +5,7 @@ function CloseIcon() {
       width={20}
       height={20}
       fill="none"
-      stroke="white"
+      stroke="black"
       viewBox="0 0 64 64"
     >
       <path d="M16 16L48 48"></path>
