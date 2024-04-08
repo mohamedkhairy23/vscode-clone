@@ -23,9 +23,9 @@ export const fileTree: IFile = {
               children: [
                 {
                   id: uuid(),
-                  name: "chunk-4YP5LC2O.js",
+                  name: "chunk.js",
                   isFolder: false,
-                  content: `console.log("hello from chunk-4YP5LC2O.js file")`,
+                  content: `console.log("hello from chunk.js file")`,
                 },
               ],
             },
