@@ -4,9 +4,9 @@ import { fileTree } from "./data/fileTree";
 
 function App() {
   return (
-    <div className="my-5">
+    <div>
       <div className="flex h-screen">
-        <div className="w-64 border-r border-black">
+        <div className="w-64 border-r border-black p-2 border-b-[1px]">
           <RecursiveComponent fileTree={fileTree} />
         </div>
         <OpenedFilesBar />
