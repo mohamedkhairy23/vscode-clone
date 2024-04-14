@@ -66,11 +66,11 @@ const OpenedFilesBarTab = ({ file }: IProps) => {
       }}
     >
       <RenderFileIcon filename={file.name} />
-      <span className="cursor-pointer duration-300 flex justify-center items-center w-fit mr-2 pl-1 rounded-md">
+      <span className="text-slate-900 cursor-pointer duration-300 flex justify-center items-center w-fit mr-2 pl-1 rounded-md">
         {file.name}
       </span>
       <span
-        className="cursor-pointer hover:bg-[#64646473] text-black duration-300 flex justify-center items-center w-fit mr-2 p-1 rounded-md"
+        className="text-slate-900 cursor-pointer hover:bg-[#64646473]  duration-300 flex justify-center items-center w-fit mr-2 p-1 rounded-md"
         onClick={(e) => {
           e.stopPropagation();
           onRemove(file.id);
